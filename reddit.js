@@ -15,7 +15,9 @@ rp('https://reddit.com/r/popular.json')
                 "URL": each.data.url,
                 "Author": each.data.author
             })
-            fs.appendFileSync(redditPopPath,JSON.stringify(artArray));
+            fs.writeFile(redditPopPath,JSON.stringify(artArray), err =>{
+                console.log(err)
+            });
         });
     });
 
